@@ -12,5 +12,6 @@
 3) Added roles and permission where only the admin can create users at first but feel free to give any user permission to do certain or all tasks on the software.<br>
 4) Added validations and 404 default screen.<br>
 5) Add products/sections with full ability to add,edit and delete.<br> 
-6) Added mini notification system for added invoices.<br>
-7) Added dashboard at main screen to summarize the invoices details.<br>
+6) Print invoice and export as excel. <br>
+7) Added mini notification system for added invoices.<br>
+8) Added dashboard at main screen to summarize the invoices details.<br>
