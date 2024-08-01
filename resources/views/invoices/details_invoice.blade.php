@@ -56,6 +56,14 @@
             </button>
         </div>
     @endif
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('error') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
 
 
@@ -211,7 +219,7 @@
                                                             {{ csrf_field() }}
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input" id="customFile"
-                                                                       name="file_name" required>
+                                                                       name="pic[]" required multiple>
                                                                 <input type="hidden" id="customFile" name="invoice_number"
                                                                        value="{{ $invoices->invoice_number }}">
                                                                 <input type="hidden" id="invoice_id" name="invoice_id"
@@ -272,7 +280,6 @@
                                                                 </td>
                                                             </tr>
                                                         @endforeach
-                                                        </tbody>
                                                         </tbody>
                                                     </table>
 

@@ -58,11 +58,12 @@
                     <form action="{{ url('invoices/update') }}" method="post" autocomplete="off">
                         @method('patch')
                         @csrf
-                        
+
                         <div class="row">
                             <div class="col">
                                 <label for="inputName" class="control-label">رقم الفاتورة</label>
                                 <input type="hidden" name="invoice_id" value="{{ $invoices->id }}">
+                                <input type="hidden" name="invoice_old_number" value="{{ $invoices->invoice_number }}">
                                 <input type="text" class="form-control" id="inputName" name="invoice_number"
                                        title="يرجي ادخال رقم الفاتورة" value="{{ $invoices->invoice_number }}" required>
                             </div>
@@ -125,9 +126,8 @@
                             <div class="col">
                                 <label for="inputName" class="control-label">نسبة ضريبة القيمة المضافة</label>
                                 <select name="Rate_VAT" id="Rate_VAT" class="form-control" onchange="myFunction()">
-                                    <option value="{{ $invoices->Rate_VAT }}">{{ $invoices->Rate_VAT }}</option>
-                                    <option value="5%">5%</option>
-                                    <option value="10%">10%</option>
+                                    <option value="5%" {{$invoices->Rate_VAT == "5%"? 'selected' :''}}>5%</option>
+                                    <option value="10%" {{$invoices->Rate_VAT == "10%"? 'selected' :''}}>10%</option>
                                 </select>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
             $('.fc-datepicker').datepicker({
                 dateFormat: 'yy-mm-dd'
             });
-            
+
             $('select[name="Section"]').on('change', function() {
                 var SectionId = $(this).val();
                 if (SectionId) {

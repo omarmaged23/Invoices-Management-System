@@ -233,29 +233,37 @@ class InvoicesController extends Controller
 //        Update Attachment Column and move the included files to a new folder
         $inv_old = $request->invoice_old_number;
         $inv_new = $request->invoice_number;
-        if(File::isDirectory(public_path('attachments/'.$request->invoice_old_number)) && ($inv_old != $inv_new)){
+        if(File::isDirectory(public_path('attachments/'.$request->invoice_old_number)) && ($inv_old != $inv_new)) {
 
-        $attachments = invoice_attachments::where('invoice_id',$request->invoice_id)->get();
-        $inv_number = $attachments->pluck('invoice_number');
-        $inv_number = $inv_number[0];
-        foreach ($attachments as $attachment)
-        {
-            $attachment->update([
-                'invoice_number' =>$request->invoice_number
-            ]);
-        }
-        $attachmentsPath = public_path('attachments/'.$inv_number);
-        $newPath = public_path('attachments/'.$request->invoice_number);
-        $files = File::files($attachmentsPath.'/');
+            $attachments = invoice_attachments::where('invoice_id', $request->invoice_id)->get();
+            if (!$attachments->count()) {
+                $newPath = public_path('attachments/' . $request->invoice_number);
+                if (!File::isDirectory($newPath)) {
+                    File::makeDirectory($newPath, 0777, true, true);
+                }
+                $attachmentsPath = public_path('attachments/' . $inv_old);
+                File::deleteDirectory($attachmentsPath);
 
-        if(!File::isDirectory($newPath)){
-            File::makeDirectory($newPath, 0777, true, true);
-        }
-        foreach ($files as $file){
-            $fileName = $file->getFilename();
-            File::move($attachmentsPath.'/'.$fileName,$newPath.'/'.$fileName);
-        }
-        File::deleteDirectory($attachmentsPath);
+            } else
+            {
+                foreach ($attachments as $attachment) {
+                    $attachment->update([
+                        'invoice_number' => $request->invoice_number
+                    ]);
+                }
+                $attachmentsPath = public_path('attachments/' . $inv_old);
+                $newPath = public_path('attachments/' . $request->invoice_number);
+                $files = File::files($attachmentsPath . '/');
+
+                if (!File::isDirectory($newPath)) {
+                    File::makeDirectory($newPath, 0777, true, true);
+                }
+                foreach ($files as $file) {
+                    $fileName = $file->getFilename();
+                    File::move($attachmentsPath . '/' . $fileName, $newPath . '/' . $fileName);
+                }
+                File::deleteDirectory($attachmentsPath);
+            }
         }
         session()->flash('edit', 'تم تعديل الفاتورة بنجاح');
         return redirect()->route('invoices.index');

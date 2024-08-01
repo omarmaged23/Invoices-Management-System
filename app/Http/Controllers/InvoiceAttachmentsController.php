@@ -43,7 +43,6 @@ class InvoiceAttachmentsController extends Controller
             ,'pic.*.max' => 'حجم الملف يجب الا يزيد عن 8 ميجابايت'
         ]
     );
-
         if ($request->hasFile('pic')) {
             if(count($request->pic) > 3){
                 session()->flash('error','أقصى عدد للمرفقات هو 3 برجاء اعادة المحاولة');
