@@ -1,5 +1,5 @@
 # Invoices-Management-System 
-<h3>Getting Started :-</h3>
+<h3>Getting Started</h3>
 1) Create <b>Attachments</b> folder in public/ directory.<br>
 2) Setup you <b>.env</b> file, create database, link your db username/password and add mail system information (iam using mailjet in this project after adding a new user to system). <br>
 3) Run <b>php artisan migration</b> command.<br>
