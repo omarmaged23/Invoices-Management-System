@@ -17,4 +17,4 @@
 7) Added mini notification system for added invoices.<br>
 8) Added dashboard at main screen to summarize the invoices details.<br>
 
-<video src="https://drive.google.com/file/d/19QTbsiZ7x8rSiiz6cBK8mbktNWQ8gtbl/view?usp=drive_link"></video>
+<video src="https://www.youtube.com/watch?v=K24lUqcT0Ms&list=PLlKKnT3UqNu0RWvCCZBnSPfhsepQ5BYN3&index=2"></video>
