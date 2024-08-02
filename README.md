@@ -16,5 +16,3 @@
 6) Print invoice and export as excel. <br>
 7) Added mini notification system for added invoices.<br>
 8) Added dashboard at main screen to summarize the invoices details.<br>
-
-<video src="https://www.youtube.com/watch?v=K24lUqcT0Ms&list=PLlKKnT3UqNu0RWvCCZBnSPfhsepQ5BYN3&index=2"></video>
