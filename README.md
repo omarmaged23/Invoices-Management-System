@@ -6,6 +6,7 @@
 4) Run <b> php artisan db:seed --class=PermissionTableSeeder </b> then <b> php artisan db:seed --class=CreateAdminUserSeeder </b> in the same order. <br>
 5) Your username and password are <b>ducky@gmail.com , test1234</b>.<br>
 6) now in terminal run the following -------> <b> npm run dev </b> and <b> php artisan serve </b> then, you are ready to go.
+
 <h3>Features</h3>
 1) Ability to add,edit,view,filter and delete invoices.<br>
 2) Add invoices attachment files view,download and delete them.<br>
@@ -15,3 +16,5 @@
 6) Print invoice and export as excel. <br>
 7) Added mini notification system for added invoices.<br>
 8) Added dashboard at main screen to summarize the invoices details.<br>
+
+<video src="https://drive.google.com/file/d/19QTbsiZ7x8rSiiz6cBK8mbktNWQ8gtbl/view?usp=drive_link"></video>
