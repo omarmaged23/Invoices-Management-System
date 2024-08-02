@@ -16,5 +16,6 @@
 6) Print invoice and export as excel. <br>
 7) Added mini notification system for added invoices.<br>
 8) Added dashboard at main screen to summarize the invoices details.<br>
-
-[Watch the video](video.html)
+<br>
+Here is a video representing quick preview of application frontend 
+[Watch the video](https://drive.google.com/file/d/1s59qkobiJJgTv_0A9YGKL5j9w0Au0twq/view?usp=drive_link)
